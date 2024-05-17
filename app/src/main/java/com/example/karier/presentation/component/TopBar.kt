@@ -31,7 +31,7 @@ fun TopBar(
     title: String,
     navigateBack: () -> Unit = {},
     backButton: Boolean = false,
-    isFilled: Boolean = true
+    isFilled: Boolean = false
 ) {
     CenterAlignedTopAppBar(
         modifier = modifier.clip(RoundedCornerShape(bottomStart = 40.dp, bottomEnd = 40.dp)),

@@ -56,7 +56,7 @@ fun RegistrasiScreen(
 
     Scaffold(
         topBar = {
-            TopBar(title = "Daftar", navigateBack = navigateBack, backButton = true)
+            TopBar(title = "Daftar", navigateBack = navigateBack, backButton = true, isFilled = true)
         }
     ) { paddingValues ->
             Column(

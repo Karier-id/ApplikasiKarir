@@ -54,7 +54,7 @@ fun ItemPilihanMinat(modifier: Modifier = Modifier, icon: ImageVector, text: Str
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = icon,
-                    contentDescription = "Back",
+                    contentDescription = "Icon",
                     modifier.padding(start = 8.dp, end = 8.dp)
                 )
                 Spacer(modifier = Modifier.width(6.dp))
