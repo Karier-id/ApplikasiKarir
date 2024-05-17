@@ -7,7 +7,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -35,12 +37,16 @@ fun PilihanMinatScreen(
     modifier: Modifier = Modifier,
     navigateBack: () -> Unit
 ) {
+    val scrollState = rememberScrollState()
+
     Scaffold(
         topBar = {
             TopBar(title = "", navigateBack = navigateBack, backButton = true)
         }
     ) { paddingValues ->
-        Column(modifier = modifier.padding(paddingValues)) {
+        Column(modifier = modifier
+            .verticalScroll(scrollState)
+            .padding(paddingValues)) {
             Column(modifier = Modifier.padding(start = 26.dp, top = 16.dp, end = 100.dp)) {
                 Text(
                     text = "Minat apa yang Anda cari?",
@@ -54,6 +60,7 @@ fun PilihanMinatScreen(
                     color = TextSecondary
                 )
             }
+            Spacer(modifier = Modifier.height(50.dp))
             Box(modifier = Modifier.fillMaxSize()) {
                 ElevatedCard(
                     elevation = CardDefaults.cardElevation(
@@ -62,7 +69,7 @@ fun PilihanMinatScreen(
                     colors = CardDefaults.cardColors(SecondaryBackground),
                     shape = RoundedCornerShape(24.dp, 24.dp),
                     modifier = Modifier
-                        .align(Alignment.BottomCenter)
+                        .align(Alignment.BottomEnd)
                 ) {
                     Column(
                         verticalArrangement = Arrangement.spacedBy(20.dp),
