@@ -141,6 +141,7 @@ fun RegistrasiScreen(
                             text = "Google",
                             style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
                         )
+                        Spacer(modifier = Modifier.height(10.dp))
                     }
                 }
             }
