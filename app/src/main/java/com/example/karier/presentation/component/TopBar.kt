@@ -14,6 +14,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,7 +30,8 @@ fun TopBar(
     modifier: Modifier = Modifier,
     title: String,
     navigateBack: () -> Unit = {},
-    backButton: Boolean = false
+    backButton: Boolean = false,
+    isFilled: Boolean = true
 ) {
     CenterAlignedTopAppBar(
         modifier = modifier.clip(RoundedCornerShape(bottomStart = 40.dp, bottomEnd = 40.dp)),
@@ -49,7 +51,9 @@ fun TopBar(
                 )
             }
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = PrimaryBlue300),
+        colors = if (isFilled) {
+            TopAppBarDefaults.topAppBarColors(containerColor = PrimaryBlue300)
+        } else TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent),
     )
 }
 
