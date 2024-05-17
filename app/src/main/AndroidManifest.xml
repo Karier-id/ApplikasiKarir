@@ -13,6 +13,11 @@
         android:theme="@style/Theme.Karier"
         tools:targetApi="31">
         <activity
+            android:name=".PilihanMinat"
+            android:exported="false"
+            android:label="@string/title_activity_pilihan_minat"
+            android:theme="@style/Theme.Karier" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
