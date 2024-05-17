@@ -1,8 +1,10 @@
 package com.example.karier.presentation.PilihanMinat
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,6 +14,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
@@ -24,6 +27,8 @@ import com.example.karier.presentation.component.KarierButton
 import com.example.karier.presentation.component.TopBar
 import com.example.karier.ui.theme.KarierTheme
 import com.example.karier.ui.theme.SecondaryBackground
+import com.example.karier.ui.theme.TextPrimary
+import com.example.karier.ui.theme.TextSecondary
 
 @Composable
 fun PilihanMinatScreen(
@@ -36,61 +41,67 @@ fun PilihanMinatScreen(
         }
     ) { paddingValues ->
         Column(modifier = modifier.padding(paddingValues)) {
-            Column(modifier = Modifier.padding(horizontal = 26.dp, vertical = 16.dp)) {
+            Column(modifier = Modifier.padding(start = 26.dp, top = 16.dp, end = 100.dp)) {
                 Text(
                     text = "Minat apa yang Anda cari?",
-                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.SemiBold)
+                    style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.SemiBold),
+                    color = TextPrimary
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = "Pilih 2-4 kategori minat dan mulai cari lowongan untuk anda",
-                    style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Normal)
+                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Normal),
+                    color = TextSecondary
                 )
             }
-            ElevatedCard(
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = 2.dp
-                ),
-                colors = CardDefaults.cardColors(SecondaryBackground),
-                shape = RoundedCornerShape(24.dp),
-            ) {
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(20.dp),
-                    modifier = Modifier.padding(horizontal = 22.dp, vertical = 52.dp)
+            Box(modifier = Modifier.fillMaxSize()) {
+                ElevatedCard(
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 2.dp
+                    ),
+                    colors = CardDefaults.cardColors(SecondaryBackground),
+                    shape = RoundedCornerShape(24.dp, 24.dp),
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
                 ) {
-                    ItemPilihanMinat(
-                        icon = ImageVector.vectorResource(id = R.drawable.icon_designer),
-                        text = "Designer"
-                    )
-                    ItemPilihanMinat(
-                        icon = ImageVector.vectorResource(id = R.drawable.icon_marketing),
-                        text = "Marketing"
-                    )
-                    ItemPilihanMinat(
-                        icon = ImageVector.vectorResource(id = R.drawable.icon_content_marketing),
-                        text = "Content Marketing"
-                    )
-                    ItemPilihanMinat(
-                        icon = ImageVector.vectorResource(id = R.drawable.icon_designer2),
-                        text = "Designer"
-                    )
-                    ItemPilihanMinat(
-                        icon = ImageVector.vectorResource(id = R.drawable.icon_designer3),
-                        text = "Designer"
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    KarierButton(
-                        text = {
-                            Text(
-                                modifier = Modifier.padding(vertical = 8.dp),
-                                text = "Lanjutkan",
-                                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
-                            )
-                        },
-                        onClick = { /*TODO*/ },
-                        varOutline = "",
-                        isWide = true
-                    )
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(20.dp),
+                        modifier = Modifier.padding(horizontal = 22.dp, vertical = 52.dp)
+                    ) {
+                        ItemPilihanMinat(
+                            icon = ImageVector.vectorResource(id = R.drawable.icon_designer),
+                            text = "Designer"
+                        )
+                        ItemPilihanMinat(
+                            icon = ImageVector.vectorResource(id = R.drawable.icon_marketing),
+                            text = "Marketing"
+                        )
+                        ItemPilihanMinat(
+                            icon = ImageVector.vectorResource(id = R.drawable.icon_content_marketing),
+                            text = "Content Marketing"
+                        )
+                        ItemPilihanMinat(
+                            icon = ImageVector.vectorResource(id = R.drawable.icon_designer2),
+                            text = "Designer"
+                        )
+                        ItemPilihanMinat(
+                            icon = ImageVector.vectorResource(id = R.drawable.icon_designer3),
+                            text = "Designer"
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        KarierButton(
+                            text = {
+                                Text(
+                                    modifier = Modifier.padding(vertical = 8.dp),
+                                    text = "Lanjutkan",
+                                    style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
+                                )
+                            },
+                            onClick = { /*TODO*/ },
+                            varOutline = "",
+                            isWide = true
+                        )
+                    }
                 }
             }
         }

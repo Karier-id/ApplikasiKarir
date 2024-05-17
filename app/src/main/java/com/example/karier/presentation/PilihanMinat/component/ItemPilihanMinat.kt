@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.example.karier.R
 import com.example.karier.ui.theme.KarierTheme
 import com.example.karier.ui.theme.PrimaryBlue400
+import com.example.karier.ui.theme.TextPrimary
 
 @Composable
 fun ItemPilihanMinat(modifier: Modifier = Modifier, icon: ImageVector, text: String) {
@@ -55,12 +56,14 @@ fun ItemPilihanMinat(modifier: Modifier = Modifier, icon: ImageVector, text: Str
                 Icon(
                     imageVector = icon,
                     contentDescription = "Icon",
-                    modifier.padding(start = 8.dp, end = 8.dp)
+                    modifier.padding(start = 8.dp, end = 8.dp),
+                    tint = TextPrimary
                 )
                 Spacer(modifier = Modifier.width(6.dp))
                 Text(
                     text = text,
-                    style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Black)
+                    style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Black),
+                    color = TextPrimary
                 )
             }
 
