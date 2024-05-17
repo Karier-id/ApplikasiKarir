@@ -39,6 +39,7 @@ import com.example.karier.presentation.component.KarierButton
 import com.example.karier.presentation.component.KarierInputText
 import com.example.karier.ui.theme.KarierTheme
 import com.example.karier.ui.theme.PrimaryBlue400
+import com.example.karier.ui.theme.TextPrimary
 
 @Composable
 fun LoginScreen(
@@ -86,7 +87,7 @@ fun LoginScreen(
                 required = true
             )
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Ingat saya", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "Ingat saya", style = MaterialTheme.typography.bodyMedium, color = TextPrimary)
             KarierButton(
                 text = {
                     Text(
@@ -99,7 +100,7 @@ fun LoginScreen(
                 varOutline = "",
                 isWide = true
             )
-            Text(text = "Atau lanjutkan dengan", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "Atau lanjutkan dengan", style = MaterialTheme.typography.bodyMedium,color = TextPrimary)
             Button(
                 colors = ButtonDefaults.buttonColors(Color.White),
                 onClick = {  }, modifier = Modifier
