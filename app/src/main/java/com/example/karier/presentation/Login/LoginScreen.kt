@@ -1,9 +1,6 @@
-package com.example.karier.presentation
+package com.example.karier.presentation.Login
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.rememberScrollableState
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,9 +16,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.EventAvailable
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -36,26 +30,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.decode.ImageSource
 import com.example.karier.R
 import com.example.karier.presentation.component.KarierButton
 import com.example.karier.presentation.component.KarierInputText
 import com.example.karier.ui.theme.KarierTheme
-import com.example.karier.ui.theme.PrimaryBackground
 import com.example.karier.ui.theme.PrimaryBlue400
-import com.example.karier.ui.theme.TextPrimary
-import com.example.karier.ui.theme.TextTertiary
 
 @Composable
 fun LoginScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateToRegister: () -> Unit,
+    navigateToDashboard:() -> Unit = {}
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -106,14 +95,14 @@ fun LoginScreen(
                         style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 },
-                onClick = { /*TODO*/ },
+                onClick = {  },
                 varOutline = "",
                 isWide = true
             )
             Text(text = "Atau lanjutkan dengan", style = MaterialTheme.typography.bodyMedium)
             Button(
                 colors = ButtonDefaults.buttonColors(Color.White),
-                onClick = { /*TODO*/ }, modifier = Modifier
+                onClick = {  }, modifier = Modifier
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -136,7 +125,7 @@ fun LoginScreen(
                 }
             }
             Row {
-                TextButton(onClick = { /*TODO*/ }) {
+                TextButton(onClick = { navigateToRegister() }) {
                     Text(text = "Belum punya akun?")
                     Spacer(modifier = modifier.width(8.dp))
                     Text(text = "Daftar", color = PrimaryBlue400)
@@ -150,6 +139,6 @@ fun LoginScreen(
 @Composable
 private fun LoginScreenPreview() {
     KarierTheme {
-        LoginScreen()
+        LoginScreen(navigateToDashboard = {}, navigateToRegister = {})
     }
 }
