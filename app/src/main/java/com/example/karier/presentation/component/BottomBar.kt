@@ -40,10 +40,10 @@ fun BottomBar(
                 elevation = 25.dp,
                 spotColor = Color.White,
                 ambientColor = SecondaryBackground,
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(16.dp),
                 clip = true
             )
-            .clip(RoundedCornerShape(12.dp)),
+            .clip(RoundedCornerShape(16.dp)),
         containerColor = PrimaryBlue300,
         contentColor = PrimaryGreen500,
     ) {
