@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.karier.R
-import com.example.karier.presentation.Dashboard.fakeData.FakeDataJobVariant
+import com.example.karier.domain.fakeData.FakeDataJobVariant
 import com.example.karier.ui.theme.KarierTheme
 import com.example.karier.ui.theme.SecondaryBackground
 import com.example.karier.ui.theme.TextPrimary

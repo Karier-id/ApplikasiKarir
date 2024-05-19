@@ -1,6 +1,6 @@
-package com.example.karier.presentation.Dashboard.fakeData
+package com.example.karier.domain.fakeData
 
-import com.example.karier.presentation.Dashboard.model.ModelRecomendation
+import com.example.karier.domain.model.ModelRecomendation
 
 object FakeDataRecommendation {
     val dataFake = listOf(

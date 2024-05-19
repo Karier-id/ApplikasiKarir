@@ -3,7 +3,6 @@ package com.example.karier.presentation.JobList
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.karier.presentation.Dashboard.component.HeaderDashboard
 import com.example.karier.presentation.Dashboard.component.ItemRecommendation
-import com.example.karier.presentation.Dashboard.fakeData.FakeDataRecommendation
+import com.example.karier.domain.fakeData.FakeDataRecommendation
 import com.example.karier.presentation.JobList.component.LabelRow
 
 @Composable

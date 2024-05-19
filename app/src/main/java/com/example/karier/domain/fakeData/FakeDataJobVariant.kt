@@ -1,6 +1,6 @@
-package com.example.karier.presentation.Dashboard.fakeData
+package com.example.karier.domain.fakeData
 
-import com.example.karier.presentation.Dashboard.model.JobVariant
+import com.example.karier.domain.model.JobVariant
 
 object FakeDataJobVariant {
     val dataFake = listOf(

@@ -1,4 +1,4 @@
-package com.example.karier.presentation.Dashboard.fakeData
+package com.example.karier.domain.fakeData
 
 data class FakeBanner(
     val title: String,

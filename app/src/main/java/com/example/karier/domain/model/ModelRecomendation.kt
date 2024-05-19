@@ -1,4 +1,4 @@
-package com.example.karier.presentation.Dashboard.model
+package com.example.karier.domain.model
 
 data class ModelRecomendation(
     val id: String,

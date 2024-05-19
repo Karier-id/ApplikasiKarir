@@ -14,8 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -39,77 +38,73 @@ import com.example.karier.ui.theme.PrimaryBlue300
 import com.example.karier.ui.theme.SecondaryBackground
 import com.example.karier.ui.theme.TextPrimary
 import androidx.compose.material3.Icon
+import com.example.karier.ui.theme.PrimaryBlue400
+import com.example.karier.ui.theme.TextSecondary
 
 @Composable
 fun ItemNotification(
     modifier: Modifier = Modifier,
     title: String,
-    company: String,
-    location: String,
-    icon: ImageVector,
-    label: String
+    date: String,
+    time: String,
+    icon: Int,
+    label: String = "Baru"
 ) {
     ElevatedCard(
         shape = CardDefaults.elevatedShape,
         elevation = CardDefaults.cardElevation(2.dp),
         modifier = Modifier
             .wrapContentSize()
-            .height(120.dp)
+            .height(90.dp)
             .padding(end = 4.dp)
             .clip(RoundedCornerShape(4.dp)),
         colors = CardDefaults.cardColors(SecondaryBackground)
     ) {
-        Column {
+        Column() {
             Row(
-                modifier = modifier
+                modifier = Modifier
                     .padding(12.dp)
                     .fillMaxWidth()
+                    .fillMaxHeight(),
+                horizontalArrangement = Arrangement.Absolute.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    imageVector = icon,
+                    imageVector = ImageVector.vectorResource(id = icon),
                     contentDescription = "Icon",
-                    modifier.padding(start = 8.dp, end = 8.dp),
+                    modifier
+                        .size(30.dp)
+                        .fillMaxWidth(),
                     tint = TextPrimary
                 )
                 Column(
-                    modifier = Modifier
+                    modifier = modifier
                         .weight(2f)
-                        .fillMaxHeight()
+                        .fillMaxWidth()
                         .padding(start = 10.dp),
-                    verticalArrangement = Arrangement.spacedBy(3.dp)
+                    verticalArrangement = Arrangement.spacedBy(3.dp),
                 ) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold),
+                        color = TextPrimary
                     )
                     Text(
-                        text = company,
-                        style = MaterialTheme.typography.labelSmall
+                        text = "$date | $time",
+                        style = MaterialTheme.typography.labelSmall.copy(color = TextSecondary)
                     )
-                    Row(
-                        verticalAlignment = Alignment.Top,
-                    ) {
-                        Icon(
-                            imageVector = ImageVector.vectorResource(id = R.drawable.ic_location),
-                            modifier = Modifier.size(15.dp),
-                            contentDescription = ""
-                        )
-                        Spacer(modifier = Modifier.width(5.dp))
-                        Text(
-                            text = location,
-                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
-                        )
-                    }
                 }
                 Card(
                     modifier = modifier
-                        .weight(1f)
-                        .clip(RoundedCornerShape(8.dp)),
-                    colors = CardDefaults.cardColors(PrimaryBlue300.copy(alpha = 0.25f)),
+                        .clip(RoundedCornerShape(6.dp)),
+                    colors = CardDefaults.cardColors(PrimaryBlue400),
                 ) {
                     Text(
                         text = label,
-                        style = MaterialTheme.typography.labelSmall
+                        style = MaterialTheme.typography.labelMedium.copy(color = Color.White),
+                        modifier = modifier
+                            .align(Alignment.CenterHorizontally)
+                            .padding(vertical = 5.dp, horizontal = 15.dp)
                     )
                 }
             }
@@ -120,18 +115,18 @@ fun ItemNotification(
 @Preview(showBackground = true)
 @Composable
 private fun ItemNotificationPreview() {
-    val title: String = "Marketing Manager"
-    val company: String = "PT. Sangkala Jaya Abadi"
-    val location: String = "Samarinda Seberang, Samarinda Kalimantan Timur"
-    val icon: ImageVector = ImageVector.vectorResource(id = R.drawable.ic_location)
-    val label: String = "Full Time"
+    val title: String = "Update Keamanan!"
+    val date: String = "16 Mei. 2024"
+    val time: String = "20.00"
+    val icon: Int =  R.drawable.ic_location
+    val label: String = "Baru"
     KarierTheme {
         ItemNotification(
             modifier = Modifier,
             title = title,
-            company = company,
-            location = location,
+            date = date,
             icon = icon,
+            time = time,
             label = label
         )
     }
