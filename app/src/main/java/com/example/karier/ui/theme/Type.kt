@@ -14,7 +14,7 @@ val PoppinsFontFamily = FontFamily(
     Font(R.font.poppins_semi_bold, FontWeight.SemiBold),
     Font(R.font.poppins_medium, FontWeight.Medium),
     Font(R.font.poppins_medium_italic, FontWeight.Medium, FontStyle.Italic),
-    Font(R.font.poppins_Bold, FontWeight.Bold),
+    Font(R.font.poppins_bold, FontWeight.Bold),
     Font(R.font.poppins_light, FontWeight.Light),
     Font(R.font.poppins_extra_light, FontWeight.Light),
 
