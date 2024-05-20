@@ -14,6 +14,7 @@ import com.example.karier.presentation.Artikel.ArtikelScreen
 import com.example.karier.presentation.Dashboard.DashboardScreen
 import com.example.karier.presentation.JobList.JobListScreen
 import com.example.karier.presentation.Login.LoginScreen
+import com.example.karier.presentation.Notification.NotificationScreen
 import com.example.karier.presentation.PilihanMinat.PilihanMinatScreen
 import com.example.karier.presentation.Profil.UserFillProfileScreen
 import com.example.karier.presentation.Register.RegistrasiScreen
@@ -94,6 +95,9 @@ fun KarierApp(
             }
             composable(route = Screen.JobList.route) {
                 JobListScreen(navigationToNotification = {navController.navigate(Screen.Notification.route)})
+            }
+            composable(route = Screen.Notification.route) {
+                NotificationScreen(navigateBack = {navController.navigateUp()})
             }
         }
     }

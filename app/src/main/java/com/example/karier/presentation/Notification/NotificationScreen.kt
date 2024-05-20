@@ -32,14 +32,16 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationScreen() {
+fun NotificationScreen(
+    navigateBack:() -> Unit
+) {
     val notificationTitle = listOf("Umum", "Lamaran")
     val tabPagerState = rememberPagerState { notificationTitle.size }
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         topBar = {
-            TopBar(title = "Notifikasi", navigateBack = {}, backButton = true, isFilled = true)
+            TopBar(title = "Notifikasi", navigateBack = {navigateBack()}, backButton = true, isFilled = true)
         }
     ) { paddingValues ->
         LazyColumn(
@@ -90,5 +92,5 @@ fun NotificationScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun NotificationScreenPreview() {
-    NotificationScreen()
+    NotificationScreen(navigateBack = {})
 }
