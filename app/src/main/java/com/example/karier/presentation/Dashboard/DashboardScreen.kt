@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.karier.presentation.Dashboard.component.CarouselBanner
 import com.example.karier.presentation.Dashboard.component.HeaderDashboard
-import com.example.karier.presentation.Dashboard.component.ItemRecommendation
+import com.example.karier.presentation.component.ItemRecommendation
 import com.example.karier.domain.fakeData.FakeDataRecommendation
 import com.example.karier.ui.theme.TextPrimary
 

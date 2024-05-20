@@ -1,4 +1,4 @@
-package com.example.karier.presentation.Dashboard.component
+package com.example.karier.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -119,15 +119,15 @@ fun ItemRecommendation(
                 ) {
                     Column(
                         modifier = modifier
-                            .padding(5.dp)
+                            .padding(3.dp)
                             .align(Alignment.CenterHorizontally),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Icon(
                             imageVector = ImageVector
                                 .vectorResource(id = R.drawable.ic_schedule),
-                            modifier = modifier.size(30.dp),
-                            contentDescription = "",
+                            modifier = modifier.size(20.dp),
+                            contentDescription = "Icon Image",
                             tint = TextPrimary
                         )
                         Text(
