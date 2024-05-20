@@ -16,6 +16,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -45,10 +47,11 @@ import com.example.karier.ui.theme.TextPrimary
 fun LoginScreen(
     modifier: Modifier = Modifier,
     navigateToRegister: () -> Unit,
-    navigateToDashboard:() -> Unit = {}
+    navigateToDashboard: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var checked by remember { mutableStateOf(false) }
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -86,8 +89,21 @@ fun LoginScreen(
                 maxLines = 1,
                 required = true
             )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Ingat saya", style = MaterialTheme.typography.bodyMedium, color = TextPrimary)
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Checkbox(
+                    checked = checked,
+                    onCheckedChange = { checked = it },
+                    colors = CheckboxDefaults.colors(PrimaryBlue400)
+                )
+                Text(
+                    text = "Ingat saya",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextPrimary
+                )
+            }
             KarierButton(
                 text = {
                     Text(
@@ -96,14 +112,18 @@ fun LoginScreen(
                         style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 },
-                onClick = {  },
+                onClick = { navigateToDashboard() },
                 varOutline = "",
                 isWide = true
             )
-            Text(text = "Atau lanjutkan dengan", style = MaterialTheme.typography.bodyMedium,color = TextPrimary)
+            Text(
+                text = "Atau lanjutkan dengan",
+                style = MaterialTheme.typography.bodyMedium,
+                color = TextPrimary
+            )
             Button(
                 colors = ButtonDefaults.buttonColors(Color.White),
-                onClick = {  }, modifier = Modifier
+                onClick = { navigateToDashboard() }, modifier = Modifier
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp)
             ) {

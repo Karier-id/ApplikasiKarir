@@ -17,6 +17,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Scaffold
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -48,12 +50,14 @@ import com.example.karier.ui.theme.TextPrimary
 @Composable
 fun RegistrasiScreen(
     modifier: Modifier = Modifier,
-    navigateBack: () -> Unit
+    navigateBack: () -> Unit,
+    navigateToPilihanMinat: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
+    var checked by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -111,12 +115,21 @@ fun RegistrasiScreen(
                 maxLines = 1,
                 required = true
             )
-            Spacer(modifier = Modifier.height(1.dp))
-            Text(
-                text = "Ingat saya",
-                style = MaterialTheme.typography.bodyMedium,
-                color = TextPrimary
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = checked,
+                    onCheckedChange = { checked = it },
+                    colors = CheckboxDefaults.colors(PrimaryBlue400)
+                )
+                Text(
+                    text = "Ingat saya",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = TextPrimary
+                )
+            }
             KarierButton(
                 text = {
                     Text(
@@ -125,7 +138,7 @@ fun RegistrasiScreen(
                         style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
                     )
                 },
-                onClick = { /*TODO*/ },
+                onClick = { navigateToPilihanMinat() },
                 varOutline = "",
                 isWide = true
             )
@@ -136,7 +149,7 @@ fun RegistrasiScreen(
             )
             Button(
                 colors = ButtonDefaults.buttonColors(Color.White),
-                onClick = { /*TODO*/ }, modifier = Modifier
+                onClick = { navigateToPilihanMinat() }, modifier = Modifier
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp)
             ) {
@@ -159,6 +172,7 @@ fun RegistrasiScreen(
                     Spacer(modifier = Modifier.height(10.dp))
                 }
             }
+            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }
@@ -167,6 +181,6 @@ fun RegistrasiScreen(
 @Composable
 private fun RegistrasiScreenPreview() {
     KarierTheme {
-        RegistrasiScreen(navigateBack = {})
+        RegistrasiScreen(navigateBack = {}, navigateToPilihanMinat = {})
     }
 }

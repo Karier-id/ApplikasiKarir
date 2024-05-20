@@ -1,6 +1,7 @@
 package com.example.karier.presentation.Dashboard.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,6 +37,7 @@ import com.example.karier.R
 import com.example.karier.ui.theme.KarierTheme
 import com.example.karier.ui.theme.PrimaryBlue300
 import com.example.karier.ui.theme.SecondaryBackground
+import com.example.karier.ui.theme.TextPrimary
 
 @Composable
 fun ItemRecommendation(
@@ -44,7 +46,8 @@ fun ItemRecommendation(
     company: String,
     location: String,
     imageContent: String,
-    label: String
+    label: String,
+    navigateToDetail: () -> Unit
 ) {
 //    val imageContent = "nlksnlasx"
     ElevatedCard(
@@ -54,7 +57,8 @@ fun ItemRecommendation(
             .wrapContentSize()
             .height(120.dp)
             .padding(end = 4.dp)
-            .clip(RoundedCornerShape(4.dp)),
+            .clip(RoundedCornerShape(4.dp))
+            .clickable { navigateToDetail() },
         colors = CardDefaults.cardColors(SecondaryBackground)
     ) {
         Column {
@@ -82,11 +86,13 @@ fun ItemRecommendation(
                 ) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.SemiBold)
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                        color = TextPrimary
                     )
                     Text(
                         text = company,
-                        style = MaterialTheme.typography.labelSmall
+                        style = MaterialTheme.typography.bodySmall,
+                        color = TextPrimary
                     )
                     Row(
                         verticalAlignment = Alignment.Top,
@@ -94,12 +100,14 @@ fun ItemRecommendation(
                         Icon(
                             imageVector = ImageVector.vectorResource(id = R.drawable.ic_location),
                             modifier = Modifier.size(15.dp),
-                            contentDescription = ""
+                            contentDescription = "",
+                            tint = TextPrimary
                         )
                         Spacer(modifier = Modifier.width(5.dp))
                         Text(
                             text = location,
-                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold)
+                            style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.SemiBold),
+                            color = TextPrimary
                         )
                     }
                 }
@@ -119,11 +127,13 @@ fun ItemRecommendation(
                             imageVector = ImageVector
                                 .vectorResource(id = R.drawable.ic_schedule),
                             modifier = modifier.size(30.dp),
-                            contentDescription = ""
+                            contentDescription = "",
+                            tint = TextPrimary
                         )
                         Text(
                             text = label,
-                            style = MaterialTheme.typography.labelSmall
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextPrimary
                         )
                     }
                 }
@@ -148,7 +158,8 @@ private fun ItemRecomendationPreview() {
             company = company,
             location = location,
             imageContent = imageContent,
-            label = label
+            label = label,
+            navigateToDetail = {}
         )
     }
 }

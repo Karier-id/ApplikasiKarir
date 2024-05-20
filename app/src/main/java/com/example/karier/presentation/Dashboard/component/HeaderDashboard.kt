@@ -56,18 +56,20 @@ import com.example.karier.ui.theme.TextSecondary
 fun HeaderDashboard(
     modifier: Modifier = Modifier,
     title: String,
+    navigateToNotification: () -> Unit
 ) {
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(bottomStart = 40.dp, bottomEnd = 40.dp))
             .background(PrimaryBlue300)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(top = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 30.dp, vertical = 10.dp),
+                .padding(horizontal = 20.dp, vertical = 1.dp),
         ) {
             Text(
                 text = title,
@@ -76,7 +78,7 @@ fun HeaderDashboard(
                 modifier = Modifier.align(Alignment.Center)
             )
             IconButton(
-                onClick = { /*TODO*/ },
+                onClick = { navigateToNotification () },
                 colors = IconButtonDefaults.filledIconButtonColors(PrimaryBlue200),
                 modifier = Modifier
                     .size(36.dp)
@@ -117,7 +119,7 @@ fun SearchBar(modifier: Modifier = Modifier) {
         placeholder = {
             Text(
                 text = "Cari",
-                style = MaterialTheme.typography.labelLarge.copy(color = TextSecondary),
+                style = MaterialTheme.typography.labelMedium.copy(color = TextSecondary),
             )
         },
         leadingIcon = {
@@ -161,6 +163,6 @@ fun SearchBar(modifier: Modifier = Modifier) {
 @Composable
 private fun TopBarPreview() {
     KarierTheme {
-        HeaderDashboard(title = "Daftar")
+        HeaderDashboard(title = "Daftar", navigateToNotification = {})
     }
 }

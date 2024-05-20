@@ -22,9 +22,9 @@ import com.example.karier.domain.fakeData.FakeDataRecommendation
 import com.example.karier.presentation.JobList.component.LabelRow
 
 @Composable
-fun JobListScreen(modifier: Modifier = Modifier) {
+fun JobListScreen(modifier: Modifier = Modifier, navigationToNotification:() -> Unit) {
     Scaffold(topBar = {
-        HeaderDashboard(title = "Karier.id")
+        HeaderDashboard(title = "Karier.id", navigateToNotification = navigationToNotification)
     }) { paddingValues ->
         LazyColumn(
             Modifier
@@ -52,6 +52,7 @@ fun JobListScreen(modifier: Modifier = Modifier) {
                             location = item.location,
                             imageContent = item.imageContent,
                             label = item.label,
+                            navigateToDetail = {}
                         )
                     }
                 }
@@ -64,5 +65,5 @@ fun JobListScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun JobListScreenPreview() {
-    JobListScreen()
+    JobListScreen(navigationToNotification = {})
 }

@@ -35,7 +35,8 @@ import com.example.karier.ui.theme.TextSecondary
 @Composable
 fun PilihanMinatScreen(
     modifier: Modifier = Modifier,
-    navigateBack: () -> Unit
+    navigateBack: () -> Unit,
+    navigateToFillProfile:() -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -104,7 +105,7 @@ fun PilihanMinatScreen(
                                     style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
                                 )
                             },
-                            onClick = { /*TODO*/ },
+                            onClick = { navigateToFillProfile() },
                             varOutline = "",
                             isWide = true
                         )
@@ -119,6 +120,6 @@ fun PilihanMinatScreen(
 @Composable
 private fun Preview() {
     KarierTheme {
-        PilihanMinatScreen(navigateBack = {})
+        PilihanMinatScreen(navigateBack = {}, navigateToFillProfile = {})
     }
 }

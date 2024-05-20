@@ -32,8 +32,8 @@ fun BannerItem(
     pagerState: PagerState
 ) {
     AsyncImage(
-        model = title,
-        contentDescription = url,
+        model = url,
+        contentDescription = title,
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .clip(RoundedCornerShape(10.dp))

@@ -36,7 +36,8 @@ import com.example.karier.ui.theme.SecondaryBackground
 @Composable
 fun UserFillProfileScreen(
     modifier: Modifier = Modifier,
-    navigateBack: () -> Unit
+    navigateBack: () -> Unit,
+    navigateDashboard: () -> Unit
 ) {
 
     var namadepan by remember { mutableStateOf("") }
@@ -137,7 +138,7 @@ fun UserFillProfileScreen(
                                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
                             )
                         },
-                        onClick = { /*TODO*/ },
+                        onClick = { navigateDashboard() },
                         varOutline = "",
                         isWide = true
                     )
@@ -152,6 +153,6 @@ fun UserFillProfileScreen(
 @Composable
 private fun Preview() {
     KarierTheme {
-        UserFillProfileScreen(navigateBack = {})
+        UserFillProfileScreen(navigateBack = {}, navigateDashboard = {})
     }
 }
